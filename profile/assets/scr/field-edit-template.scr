@@ -1,0 +1,62 @@
+	Vue.component('fields-edit', {
+
+		template: `
+	<div class="[module]-[type]" v-show="visible">
+		<div>
+			[rows]
+		</div>
+		<div class="action-row">
+			<button class="cancel" @click="cancel()"><i class="icon-cancel"></i>Cancel</button>
+			<button class="change" @click="change()"><i class="icon-change"></i>Change</button>
+		</div>
+	</div>
+		`,
+
+		data: function () {
+			return {
+				uid    : '', 
+				visible: false,
+				undo   : [],
+				[data],
+				[options]
+			};
+		},
+
+		created() {
+			var self= this;
+			comm.$on('fieldEditShow', function (field) {
+				self.uid     = field.uid;
+				self.undo    = JSON.parse(JSON.stringify(field));
+				self.field   = field;
+				self.visible = true;
+			});
+		},
+
+		methods: {
+
+			cancel: function(){
+				for(var i in this.undo) {
+					this.field[i] = this.undo[i];
+				}
+				comm.$emit('fieldModalClear');
+			},
+
+			change: function(){
+				comm.$emit('fieldModalClear');
+				comm.$emit('fieldChanged', this.uid);
+				
+			},
+
+		// 	<input-select :current="[model]" :options="[options]" sync="[model]" @selected="select" ></input-select>
+			select: function(varpath, val){
+				var parts= varpath.split('.');
+				if ( parts.length == 1 ) this[varpath] = val;
+				if ( parts.length == 2 ) this[parts[0]][parts[1]] = val;
+				if ( parts.length == 3 ) this[parts[0]][parts[1]][parts[2]] = val;
+			}
+
+		}
+
+
+	});
+

@@ -1,0 +1,44 @@
+.input-selected{
+    background-color: #f3f3f3;
+    padding: 2px 6px 3px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+textarea, input{
+    background-color: #f3f3f3;
+    padding: 3px 6px 4px;
+    border-radius: 3px;
+    font-size: 14px;
+    border: 0;
+    margin: 0;
+}
+
+.input-selected .selected{
+    width: calc( 100% - 1em );
+}
+.input-selected .popup{
+    background-color: #f5fdff;
+    float: right;
+    padding: 2px 8px;
+    border-color: #c1c1c1;
+}
+
+.input-select .options{
+    background-color: #f3f3f3;
+    position: absolute;
+    width: 92%;
+    font-size: 14px;
+    padding: 1px;
+    border-radius: 2px;
+}
+
+.input-select .options li{
+    background-color: white;
+    padding: 2px 8px;    
+}
+
+.input-select .options li:hover{ 
+    background-color: #f5fdff;
+    cursor: pointer;
+}

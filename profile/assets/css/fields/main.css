@@ -1,0 +1,25 @@
+    .main-area.fields{
+        background-color: #373e46;
+    }
+
+     .main-area.fields .ul{
+        list-style: none;
+        position: relative;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-area.fields .ul li{
+        position: relative;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+
+    .main-area.fields .ul li.right{
+        position: relative;
+        float: right;
+    }
+   

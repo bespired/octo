@@ -1,0 +1,15 @@
+
+	button.change {
+        background-color: #47ea2c;
+        box-shadow: inset 0 1px #94f34b, inset 0 -2px #1ec31c, 0 1px rgba(127,127,127,.75);
+        padding-left: .5em;
+    }
+    button.change:active{
+        box-shadow: inset 0 1px #94f34b, 0 1px rgba(127,127,127,.75);
+    }
+
+     button.change:hover {
+        background-color: #8ff37e;
+    }
+
+ 

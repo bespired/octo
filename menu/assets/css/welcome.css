@@ -1,0 +1,9 @@
+	.welcome{
+    	display: inline-block;
+    	width: 100%;
+	}
+
+	.welcome h1, .fields h1, .tags h1{
+		text-align: center;
+		margin-top: 40vh;
+	}

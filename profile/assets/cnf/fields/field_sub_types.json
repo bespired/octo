@@ -1,0 +1,10 @@
+	[
+		{ "value" : "email",     "label" : "Email"     },
+		{ "value" : "telephone", "label" : "Telephone" },
+		{ "value" : "post",      "label" : "Post"      },
+		{ "value" : "name",      "label" : "Name"      },
+		{ "value" : "gender",    "label" : "Gender"    },
+		{ "value" : "adress",    "label" : "Adress"    },
+		{ "value" : "country",   "label" : "Country"   },
+		{ "value" : "language",  "label" : "Language"  }
+	]

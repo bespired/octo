@@ -1,0 +1,4 @@
+<div>
+	<label>[label]</label>
+	<input-select :current="[model]" :options="[options]" sync="[model]" @selected="select" ></input-select>
+</div>

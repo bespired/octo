@@ -1,0 +1,93 @@
+	header{
+		margin-left: 0;
+		transition: margin-left $speed;
+		z-index: $first-layer;
+	}
+
+	header .logo a {
+		padding: 0;
+		margin-right: 12px;
+	}
+	header .logo a img{
+		height: 26px;
+    	width: 32px;
+    	margin-bottom: -8px;
+    	margin-left: 10px;
+	}
+
+	header ul{
+		background-color: $green;
+    	list-style: none;
+    	position: relative;
+    	z-index: $first-layer;
+    	float: left;
+    	margin: 0;
+    	padding: 0;
+    	width: 100%;
+	}
+
+	header ul li{
+		position: relative;
+    	float: left;
+    	margin: 0;
+    	padding: 0;
+    	perspective: 800px;
+	}
+
+	header li:hover{
+		background-color: $hover;
+	}
+
+	header ul li a {
+	    display: block;
+	    text-decoration: none;
+	    font-size: 12px;
+	    line-height: 32px;
+	    padding: 0 15px;
+	    color: $front;
+	    cursor: pointer;
+	}
+
+	header ul ul{
+    	display: block;
+		position: absolute;
+    	top: 100%;
+    	left: 0;
+    	background: #fff;
+    	padding: 0;
+    	transform: rotateX(10deg) translateY(-10px);
+    	transform-origin: -200% 0%;
+    	transition: transform 200ms, opacity 100ms;
+    	visibility: visible;
+    	opacity: 0;
+    	pointer-events: none;
+	}
+	header ul li:hover > ul {
+    	transform: rotateX(0) translateY(0);
+    	visibility: visible;
+    	opacity: 1;
+    	pointer-events: initial;
+	}
+	header ul li:hover > ul li{
+    	background-color: $pop;
+    	width: 125px;
+	}
+	header ul li:hover > ul li:hover{
+    	background-color: $hover;
+	}
+	header ul ul li{
+		box-shadow: 0px 2px 6px rgba(0,0,0,.1);
+    	white-space: nowrap;
+    }
+
+    header.with_sidebar{
+    	margin-left: 200px;
+    }
+
+    header a:focus{
+    	outline: 0;
+    	text-decoration: underline;
+    }
+
+
+

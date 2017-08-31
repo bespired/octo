@@ -1,0 +1,38 @@
+	[
+		{ 
+			"value" : "key", 
+	 		"label" : "Key"
+		},
+		{ 
+			"value" : "general", 
+	 		"label" : "General Data"
+		},
+		{ 
+			"value" : "personal", 
+	 		"label" : "Personal Data"
+		},
+		{ 
+			"value" : "event", 
+	 		"label" : "Event Data"
+		},
+		{ 
+			"value" : "quiz", 
+	 		"label" : "Quiz Data"
+		},
+		{ 
+			"value" : "status", 
+	 		"label" : "Current Status"
+		},
+		{ 
+			"value" : "action", 
+	 		"label" : "Action Data"
+		},
+		{ 
+			"value" : "system", 
+	 		"label" : "System Data"
+		},
+		{ 
+			"value" : "approache",
+	 		"label" : "Speech/Adress/Approache Data"
+		}
+	]

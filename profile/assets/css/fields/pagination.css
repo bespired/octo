@@ -1,0 +1,16 @@
+
+ul.pagination li a{
+    cursor: pointer;
+    padding: 1em;
+}
+ul.pagination li:hover{
+    background-color: #aaa;
+}
+
+ul.pagination li.current{
+    background-color: #373e46;
+    border: 1px none transparent;
+}
+.main-area .fields-table ul.pagination li{
+    padding: 6px 0;
+}

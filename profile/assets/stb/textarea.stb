@@ -1,0 +1,4 @@
+<div>
+	<label>[label]</label>
+	<textarea v-model="[model]"></textarea>
+</div>

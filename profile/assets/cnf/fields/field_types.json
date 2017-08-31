@@ -1,0 +1,15 @@
+	[
+		{ 
+			"value" : "personal", 
+	 		"label" : "Personal"
+		}, { 
+			"value" : "contact", 
+	 		"label" : "Contact"
+		}, { 
+			"value" : "deliver", 
+	 		"label" : "Deliver"
+		}, { 
+			"value" : "pick-up", 
+	 		"label" : "Pick up"
+		}
+	]

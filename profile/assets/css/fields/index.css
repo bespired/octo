@@ -1,0 +1,123 @@
+    .main-area .fields-index{
+        width: 100%;
+    }
+
+	.main-area .fields-table{
+        width: 100%;
+        max-width: 1200px;
+
+        margin: 0 auto 2em;
+        background-color: #373e46;
+        color: white;
+        font-size: 12px;
+        font-family: 'source_sans_pro_light', sans-serif;
+        font-weight: 200;
+ 		padding: 1em;
+    }
+
+    .main-area .fields-table ul{
+        font-size: 0;
+        line-height: 0;
+        width: 100%;
+        display: inline-flex;
+        transition: margin-top $speed;
+        transition: margin-bottom $speed;
+    }
+
+    .main-area .fields-table ul li{
+
+    	background-color: rgb(78, 88, 99);
+	    border: 1px solid rgba(91, 102, 115,0.5);
+    	border-bottom: 1px solid rgba(58, 67, 76, 0.5);
+    	border-right: 1px solid rgba(58, 67, 76, 0.5);
+    	
+        text-shadow: 0 1px rgba(58, 67, 76, 0.5);
+        font-size: 12px;
+        line-height: 12px;
+        
+        overflow: hidden;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        margin: 0 0 1px;
+        padding: 8px 12px 8px;
+
+    }
+
+    .main-area ul.fields-index:nth-child(even) li{
+    	background-color: rgb(68, 77, 86);	
+    }
+ 
+    .main-area .fields-table ul.row li.subs{
+        font-size: 10px;
+        color: #a0a0a0;
+    }
+
+    .main-area .fields-table ul.row li.acts{
+        padding: 2px;
+        text-align: center;
+    }
+
+    .main-area .fields-table ul.header li{
+        position: relative;
+    }
+
+    .main-area .fields-table ul.header li.acts{
+        padding: 8px 2px;
+        text-align: center;
+    }
+
+    .main-area .fields-table ul.row li.name{
+        text-transform: capitalize;
+        font-size: 14px;
+    }
+    
+    .main-area .fields-table ul.header li.name{
+        text-transform: capitalize;
+        font-size: 14px;
+    }
+
+    .main-area .fields-table ul.selected{
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .main-area .fields-table ul.changed li{
+        background-color: rgba(26, 239, 72, 0.08);
+    }
+
+
+    .main-area .fields-table ul.header li{
+        font-size: 11px;
+    }
+
+
+    .fields-table .header i{
+        position: absolute;
+        right: 2px;
+        font-style: normal;
+        font-weight: normal;
+        font-family: "octopussy";
+        font-size: 10px;
+        padding: 0 4px;
+    }
+
+    .fields-table .row .name{
+        position: relative;
+    }
+    .fields-table .row .name:before{
+        content: ' ';
+        position: absolute;
+        top:0; bottom: 0; left: 0;
+    }
+    .fields-table .row .name.company:before  { border-left: 2px solid #7392b5; }
+    .fields-table .row .name.personal:before { border-left: 2px solid #73b587; }
+
+@media screen and (max-width: 900px) {
+    .main-area .fields-table ul li.subs {
+        display: none;
+
+    }
+}
+

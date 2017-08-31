@@ -1,0 +1,10 @@
+	[
+		{ 
+			"value" : "personal", 
+	 		"label" : "Personal"
+		},
+		{ 
+			"value" : "company", 
+	 		"label" : "Company"
+		}
+	]
