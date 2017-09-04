@@ -46,10 +46,12 @@
 				}
 			});
 
-			comm.$on('fieldChanged', function (uid) {
+			comm.$on('fieldChanged', function () {
 				self.dirty = true;
 			});
-
+			comm.$on('fieldSaved', function () {
+				self.dirty = false;
+			});
 		},
 
 		methods:{

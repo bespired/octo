@@ -2,9 +2,9 @@
 
 		template: `
 			<div class="input-select">
-				<div class="input-selected">
+				<div class="input-selected" :class="{ open:visible }">
 					<span class="selected">{{ selected }}&nbsp;</span>
-					<button class="popup" @click="toggle()">V</button>
+					<button class="popup"  @click="toggle()"><i class="icon-down-open"></i></button>
 				</div>
 				<ul class="options" v-show="visible">
 					<li v-for='option in options' @click="select(option.value)" >

@@ -33,14 +33,52 @@ Class Response
 		 		$this->load_json($module);
 		 		return;
 		 	break;
+
+		 	case 'save-':
+
+		 		$this->save_fields($_POST['data']);
+
 		}
+
+	}
+
+	private function save_fields($posts)
+	{
+
+		if (!$posts) return;
+
+ 		header("Access-Control-Allow-Origin: *");
+ 		header("Access-Control-Allow-Methods: POST, PUT, OPTIONS");
+ 		header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+ 		header("Content-Type: *");
+
+ 		echo "data:\n";
+
+		$collect = array();
+		foreach ($posts as $post){
+  			$collect[] = (object)$post;
+		}
+
+		$changed = array_filter($collect, function($obj){
+    		return (isset($obj->changed) && ($obj->changed == 'true')) ? true : false;
+    	});
+
+ 		foreach ($changed as $obj){
+ 			$group = $obj->group;
+ 			$modelfile = __DIR__ . '/../Models/fields/' . $group . '.php';
+ 			$fields = file_exists($modelfile) ? @include $modelfile : [];
+			$fields[$obj->uid] = (array)$obj;
+			unset($fields[$obj->uid]['changed']);
+			unset($fields[$obj->uid]['selected']);
+			Template::write_model_data($modelfile, $fields);
+ 		}
 
 	}
 
 // find templates to mix into the vue.
 	private function match_template($str)
 	{
-		$re = '/template: (?<tpl>\'#[\S]*?\')/';	
+		$re = '/template: (?<tpl>\'#[\S]*?\')/';
 		preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0);
 
 		if (count($matches) == 0 ) return $str;
@@ -95,11 +133,11 @@ Class Response
 	// create/load all edit vue for this module
 	private function load_edit($module)
 	{
-		
+
 		$edit = new Template();
 		$edit->vue($module, 'edit');
 		return;
-		
+
 
 	}
 
@@ -126,5 +164,7 @@ Class Response
 
 		return;
 	}
+
+
 
 }

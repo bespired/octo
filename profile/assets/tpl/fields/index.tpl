@@ -17,7 +17,7 @@
 			<li class="w05 mw80px acts">Actions</li>
 		</ul>
 		<ul v-for="row in rows" v-if="row.deleted !== 'true'"
-			:id="row.uid" class="row" :class="{ changed : row.changed }">
+			:id="row.uid" class="row" :class="[{ changed:row.changed},{ selected:row.selected }]">
 			<li class="w06 subs">{{ row.group }}</li>
 			<li class="w12 name" :class="row.group">{{ row.name }}</li>
 			<li class="w05 subs">{{ row.uid }}</li>

@@ -18,27 +18,40 @@ textarea, input{
     width: calc( 100% - 1em );
 }
 .input-selected .popup{
-    background-color: #f5fdff;
+    background-color: #f3f3f3;
     float: right;
     padding: 2px 8px;
     border-color: #c1c1c1;
+
 }
 
+.input-selected .popup i{
+    display: inline-block;
+    transition: transform $speed;
+}
+.input-selected.open i.icon-down-open{
+    transform: rotate(180deg);
+}
+.input-selected.open .popup{
+    background-color: white;
+}
 .input-select .options{
-    background-color: #f3f3f3;
+    background-color: #bfbfbf;
     position: absolute;
     width: 92%;
     font-size: 14px;
     padding: 1px;
     border-radius: 2px;
+    box-shadow: 0 3px 4px 0px rgba(0, 0, 0, 0.21);
 }
 
 .input-select .options li{
     background-color: white;
-    padding: 2px 8px;    
+    padding: 2px 8px;
 }
 
-.input-select .options li:hover{ 
-    background-color: #f5fdff;
+.input-select .options li:hover{
+    background-color: #2ca2ea;
+    color: white;
     cursor: pointer;
 }

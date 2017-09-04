@@ -9,7 +9,7 @@
 				sort: 'name',
 				sortdir: 1,
 				page: 1,
-				max_rows: 25, // or... calculate from page height...
+				max_rows: 10, // or... calculate from page height...
 			}
 		},
 
@@ -36,10 +36,31 @@
 
 			},
 
+			deselectAll: function(){
+				for (var key in this.statics.field) {
+					this.statics.field[key].selected = false;
+				};
+			},
+
+			unChangeAll: function(){
+				for (var key in this.statics.field) {
+					this.statics.field[key].changed = false;
+				};
+			},
+
+			selectOneById: function(uid){
+
+				this.deselectAll();
+				this.statics.field[uid].selected = true;
+
+				this.$forceUpdate();
+
+			},
+
 			remove: function(uid){
 
 				bodyScroll(false);
-				selectOneById(uid);
+				this.selectOneById(uid);
 
 				// comm.$emit('fieldModal', 'edit', uid);
 
@@ -48,7 +69,7 @@
 			edit: function(uid){
 
 				bodyScroll(false);
-				selectOneById(uid);
+				this.selectOneById(uid);
 
 				comm.$emit('fieldModal', 'edit', uid);
 
@@ -90,7 +111,6 @@
 				var from = (this.page-1) * (this.max_rows);
 				var part = arr.slice(from, from + this.max_rows);
 
-				console.log(part);
 				return part;
 			}
 		},
@@ -100,7 +120,8 @@
 			var self = this;
 			comm.$on('fieldModalClear', function () {
 				bodyScroll(true);
-				deselectAll();
+				self.deselectAll();
+				self.$forceUpdate();
 				comm.$emit('clearModal');
 			});
 
@@ -112,6 +133,24 @@
 			comm.$on('otherPage', function (page) {
 				self.page = page;
 				self.$forceUpdate();
+			});
+
+			comm.$on('saveFields', function(){
+				var save_location = config.url.fields.replace('load','save');
+				self.$http.post(save_location,
+					{ data: self.statics.field },
+					{ emulateJSON: true }
+				).then(function (response) {
+    					// Success
+    					self.unChangeAll();
+    					self.$forceUpdate();
+    					comm.$emit('fieldSaved');
+//    					console.log(response.data);
+					},function (response) {
+    				// Error
+//    					console.log(response.data)
+					});
+
 			});
 
 		}
