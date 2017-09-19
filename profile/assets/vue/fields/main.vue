@@ -1,3 +1,4 @@
+<script>
 	Vue.component('fields', {
 
 		template: '#fields',
@@ -22,14 +23,16 @@
 					console.log(response.data)
 				});
 
-
 			var self = this;
 
 			comm.$on('clearModal', function () {
 				self.modal = '';
 			});
 
+
 			comm.$on('fieldModal', function (modal, uid) {
+
+				console.log(modal);
 
 				if ( document.getElementById( 'module-fields-' + modal ) == null )
 				{
@@ -40,21 +43,35 @@
 
 					self.modal = 'fields-' + modal;
 					Vue.nextTick( function(){
-						comm.$emit('fieldEditShow', self.statics.field[uid]);
+						comm.$emit(self.showcommand(modal), self.statics.field[uid]);
 					});
 
 				}
 			});
 
+			comm.$on('fieldDirty', function () {
+				self.dirty = true;
+			});
+
 			comm.$on('fieldChanged', function () {
 				self.dirty = true;
 			});
+
 			comm.$on('fieldSaved', function () {
 				self.dirty = false;
 			});
 		},
 
 		methods:{
+
+			capitalizeFirstLetter(string) {
+    			return string.charAt(0).toUpperCase() + string.slice(1);
+			},
+
+			showcommand: function(modal){
+				return 'field'+ this.capitalizeFirstLetter(modal) +'Show';
+			},
+
 			loadModule: function(module, modal, uid, self) {
 
 				var jsElm    = document.createElement("script");
@@ -65,7 +82,7 @@
 				jsElm.onload = function(){
 					self.modal = module + '-' + modal;
 					Vue.nextTick( function(){
-						comm.$emit('fieldEditShow', self.statics.field[uid]);
+						comm.$emit(self.showcommand(modal), self.statics.field[uid]);
 					});
 
 				};
@@ -75,4 +92,4 @@
 
 
 	});
-
+</script>

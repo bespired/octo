@@ -4,6 +4,7 @@
 
 	<fields-menu  :statics="statics" ></fields-menu>
 	<fields-index :statics="statics" ></fields-index>
+	<fields-create></fields-create>
 	<fields-save></fields-save>
 
 	<fields-modal :is="modal"></fields-modal>

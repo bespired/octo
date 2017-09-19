@@ -3,7 +3,6 @@
 Class Template
 {
 
-
 	private $stubs   = [];
 	private $options = [];
 
@@ -38,7 +37,8 @@ Class Template
 		$data = $this->toData($config);
 		$opts = sprintf('options: %s', json_encode($options));
 
-		$screen = @file_get_contents(__DIR__ . "/../assets/scr/field-edit-template.scr");
+		$scr_file = __DIR__ . "/../assets/scr/field-".$type."-template.scr";
+		$screen = @file_get_contents($scr_file);
 
 		$screen = str_replace('[module]'  , $module, $screen);
 		$screen = str_replace('[type]'    , $type, $screen);
@@ -92,7 +92,7 @@ Class Template
 	            }
 	            return "[\n" . implode(",\n", $r) . "\n" . $indent . "]";
 	        case "boolean":
-	            return $var ? "TRUE" : "FALSE";
+	            return $var ? "'true'" : "'false'";
 	        default:
 	            return var_export($var, TRUE);
 	    }

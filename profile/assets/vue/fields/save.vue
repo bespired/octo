@@ -1,3 +1,4 @@
+<script>
 	Vue.component('fields-save', {
 
 		template: '#fields-save',
@@ -9,3 +10,4 @@
 		}
 
 	});
+</script>

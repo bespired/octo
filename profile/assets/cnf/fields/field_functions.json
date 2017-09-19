@@ -1,37 +1,37 @@
 	[
-		{ 
-			"value" : "key", 
+		{
+			"value" : "key",
 	 		"label" : "Key"
 		},
-		{ 
-			"value" : "general", 
+		{
+			"value" : "general",
 	 		"label" : "General Data"
 		},
-		{ 
-			"value" : "personal", 
+		{
+			"value" : "personal",
 	 		"label" : "Personal Data"
 		},
-		{ 
-			"value" : "event", 
+		{
+			"value" : "event",
 	 		"label" : "Event Data"
 		},
-		{ 
-			"value" : "quiz", 
+		{
+			"value" : "quiz",
 	 		"label" : "Quiz Data"
 		},
-		{ 
-			"value" : "status", 
+		{
+			"value" : "status",
 	 		"label" : "Current Status"
 		},
-		{ 
-			"value" : "action", 
+		{
+			"value" : "action",
 	 		"label" : "Action Data"
 		},
-		{ 
-			"value" : "system", 
+		{
+			"value" : "system",
 	 		"label" : "System Data"
 		},
-		{ 
+		{
 			"value" : "approache",
 	 		"label" : "Speech/Adress/Approache Data"
 		}

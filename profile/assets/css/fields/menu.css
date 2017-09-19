@@ -21,14 +21,14 @@
         font-size: .8rem;
         color: $fg-second;
     }
-    
+
 
     .main-area.fields .fields-menu ul li.right{
         position: relative;
         float: right;
     }
-    
+
     .main-area.fields .fields-menu ul li.title{
-        padding: 2px 1em 2px 1em;
+        padding: 6px 1em 8px 1em;
         font-size: 1rem;
     }

@@ -14,6 +14,11 @@ Class Response
 
 		switch ($action) {
 
+		 	case 'load-new':
+		 		$this->load_new($module);
+		 		return;
+		 	break;
+
 		 	case 'load-edit':
 		 		$this->load_edit($module);
 		 		return;
@@ -60,14 +65,20 @@ Class Response
 		}
 
 		$changed = array_filter($collect, function($obj){
+			if (isset($obj->delete) && ($obj->delete == 'true')) return true;
     		return (isset($obj->changed) && ($obj->changed == 'true')) ? true : false;
     	});
 
  		foreach ($changed as $obj){
+ 			if (isset($obj->delete) && ($obj->delete == 'true')){
+ 				$obj->deleted = 'true';
+ 				unset($obj->delete);
+ 			}
  			$group = $obj->group;
  			$modelfile = __DIR__ . '/../Models/fields/' . $group . '.php';
  			$fields = file_exists($modelfile) ? @include $modelfile : [];
 			$fields[$obj->uid] = (array)$obj;
+
 			unset($fields[$obj->uid]['changed']);
 			unset($fields[$obj->uid]['selected']);
 			Template::write_model_data($modelfile, $fields);
@@ -101,6 +112,9 @@ Class Response
 
 		$vue= str_replace($tpl_str, "`".$template."`", $str);
 
+		$re = '/(\<script[\s\S]*?\>)/mi';   $vue = preg_replace($re, '', $vue);
+		$re = '/(\<\/script[\s\S]*?\>)/mi'; $vue = preg_replace($re, '', $vue);
+
 		return $vue;
 
 	}
@@ -133,13 +147,19 @@ Class Response
 	// create/load all edit vue for this module
 	private function load_edit($module)
 	{
-
 		$edit = new Template();
 		$edit->vue($module, 'edit');
 		return;
-
-
 	}
+
+	// create/load all edit vue for this module
+	private function load_new($module)
+	{
+		$create = new Template();
+		$create->vue($module, 'new');
+		return;
+	}
+
 
 	// load all vue from this module
 	private function load_module($module)

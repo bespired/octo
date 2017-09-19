@@ -166,5 +166,34 @@
             "process" => "",
             "validation" => "iso-639",
             "fullname" => "personal.language"
+        ],
+        "fpna165" => [
+            "uid" => "fpna165",
+            "group" => "personal",
+            "name" => "Name",
+            "description" => "new",
+            "information_type" => "personia",
+            "field_function" => "general",
+            "field_type" => "personal",
+            "field_sub_type" => "telephone",
+            "storage_type" => "code",
+            "encryption_type" => "aes",
+            "process" => "tolower",
+            "validation" => "none",
+            "fullname" => "personal.Name"
+        ],
+        "fpna164" => [
+            "uid" => "fpna164",
+            "group" => "personal",
+            "name" => "name",
+            "description" => "mandatory",
+            "information_type" => "personia",
+            "field_function" => "general",
+            "field_type" => "contact",
+            "field_sub_type" => "telephone",
+            "storage_type" => "code",
+            "encryption_type" => "aes",
+            "process" => "tolower",
+            "validation" => "name"
         ]
     ];

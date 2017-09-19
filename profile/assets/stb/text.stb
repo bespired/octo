@@ -1,4 +1,4 @@
 <div>
 	<label>[label]</label>
-	<input type="text" v-model="[model]">
+	<input type="text" v-model="[model]" @change="enable">
 </div>

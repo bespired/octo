@@ -1,0 +1,96 @@
+
+	Vue.component('fields-new', {
+
+		template: `
+	<div class="[module]-[type]" v-show="visible">
+		<div>
+			[rows]
+		</div>
+		<div class="action-row">
+			<button class="cancel" @click="cancel()"><i class="icon-cancel"></i>Cancel</button>
+			<button class="create" :class="{disabled:disabled}" @click="add()"><i class="icon-plus"></i>Add</button>
+		</div>
+	</div>
+		`,
+
+		data: function () {
+			return {
+				uid    : '',
+				visible: false,
+				disabled: true,
+				[data],
+				[options]
+			};
+		},
+
+		created() {
+			var self= this;
+			comm.$on('fieldNewShow', function (field) {
+				self.visible = true;
+			});
+		},
+
+		methods: {
+
+			cancel: function(){
+				for(var i in this.undo) {
+					this.field[i] = this.undo[i];
+				}
+				comm.$emit('fieldModalClear');
+			},
+
+			uidify: function(){
+				var uid = 'f', tohash = '';
+				for(var i in this.field) {
+					if ( this.field[i] !== null ) {
+						tohash += this.field[i].substr(0,2);
+					}
+				}
+				if (this.field.group !== null) uid += this.field.group.substr(0,1);
+				if (this.field.name  !== null) uid += this.field.name.substr(0,2);
+				uid += this.hashCode(tohash);
+				this.field.uid = uid.toLowerCase();
+			},
+
+			hashCode: function(str) {
+			  	var hash = 0, i, chr;
+			  	if (str.length === 0) return hash;
+			  	for (i = 0; i < str.length; i++) {
+			    	chr   = str.charCodeAt(i);
+			    	hash  = ((hash << 5) - hash) + chr;
+			    	hash %= 1000;
+			  	}
+			 	return ('000'+hash).substr(-3,3);
+			},
+
+			enable: function(){
+				this.uidify();
+				this.disabled = false;
+				for(var i in this.field) {
+					if ( this.field[i] === null ) this.disabled = true;
+				}
+				this.field.name = this.field.name.toLowerCase();
+			},
+
+			add: function(){
+				if (this.disabled) return;
+
+				comm.$emit('fieldModalClear');
+
+				comm.$emit('fieldAdd', this.field);
+				comm.$emit('fieldDirty');
+
+			},
+
+			select: function(varpath, val){
+				var parts= varpath.split('.');
+				if ( parts.length == 1 ) this[varpath] = val;
+				if ( parts.length == 2 ) this[parts[0]][parts[1]] = val;
+				if ( parts.length == 3 ) this[parts[0]][parts[1]][parts[2]] = val;
+				this.enable();
+			}
+
+		}
+
+	});
+

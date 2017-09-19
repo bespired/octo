@@ -1,10 +1,10 @@
 	[
-		{ 
-			"value" : "text", 
+		{
+			"value" : "text",
 	 		"label" : "text"
 		},
-		{ 
-			"value" : "code", 
+		{
+			"value" : "code",
 	 		"label" : "code"
 		}
 	]

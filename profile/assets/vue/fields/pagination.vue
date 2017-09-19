@@ -1,8 +1,7 @@
+<script>
 	Vue.component('fields-pagination', {
 
 		template: '#fields-pagination',
-
-//		props: ['statics'],
 
 		data: function(){
 			return {
@@ -33,5 +32,5 @@
 			}
 		},
 
-
 	});
+</script>

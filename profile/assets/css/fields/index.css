@@ -30,11 +30,11 @@
 	    border: 1px solid rgba(91, 102, 115,0.5);
     	border-bottom: 1px solid rgba(58, 67, 76, 0.5);
     	border-right: 1px solid rgba(58, 67, 76, 0.5);
-    	
+
         text-shadow: 0 1px rgba(58, 67, 76, 0.5);
         font-size: 12px;
         line-height: 12px;
-        
+
         overflow: hidden;
         display: inline-block;
         text-overflow: ellipsis;
@@ -46,9 +46,9 @@
     }
 
     .main-area ul.fields-index:nth-child(even) li{
-    	background-color: rgb(68, 77, 86);	
+    	background-color: rgb(68, 77, 86);
     }
- 
+
     .main-area .fields-table ul.row li.subs{
         font-size: 10px;
         color: #a0a0a0;
@@ -72,7 +72,7 @@
         text-transform: capitalize;
         font-size: 14px;
     }
-    
+
     .main-area .fields-table ul.header li.name{
         text-transform: capitalize;
         font-size: 14px;
@@ -87,6 +87,10 @@
         background-color: rgba(26, 239, 72, 0.08);
     }
 
+    .main-area .fields-table ul.delete li{
+        background-color: rgba( 239, 26, 72, 0.08);
+        opacity: .5;
+    }
 
     .main-area .fields-table ul.header li{
         font-size: 11px;

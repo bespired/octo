@@ -1,4 +1,4 @@
 <div>
 	<label>[label]</label>
-	<textarea v-model="[model]"></textarea>
+	<textarea v-model="[model]" @change="enable"></textarea>
 </div>

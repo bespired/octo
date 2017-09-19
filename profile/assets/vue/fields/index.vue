@@ -1,3 +1,4 @@
+<script>
 	Vue.component('fields-index', {
 
 		template: '#fields-index',
@@ -9,7 +10,7 @@
 				sort: 'name',
 				sortdir: 1,
 				page: 1,
-				max_rows: 10, // or... calculate from page height...
+				max_rows: 15, // or... calculate from page height...
 			}
 		},
 
@@ -45,6 +46,9 @@
 			unChangeAll: function(){
 				for (var key in this.statics.field) {
 					this.statics.field[key].changed = false;
+					if ( this.statics.field[key].delete ){
+						this.statics.field[key].deleted = 'true';
+					}
 				};
 			},
 
@@ -59,10 +63,13 @@
 
 			remove: function(uid){
 
-				bodyScroll(false);
-				this.selectOneById(uid);
-
-				// comm.$emit('fieldModal', 'edit', uid);
+				if (this.statics.field[uid].delete){
+					this.statics.field[uid].delete = false;
+				}else{
+					this.statics.field[uid].delete = true;
+				}
+				this.$forceUpdate();
+				comm.$emit('fieldDirty');
 
 			},
 
@@ -73,6 +80,10 @@
 
 				comm.$emit('fieldModal', 'edit', uid);
 
+			},
+
+			safeUid: function(uid){
+				return uid;
 			}
 
 		},
@@ -86,7 +97,10 @@
 				var rows= this.statics.field;
 				var arr = Object.keys(rows);
 
-				arr = arr.filter(function(key){ console.log(key); return rows[key].deleted != 'true'; });
+				arr = arr.filter(function(key){
+					// console.log(key);
+					return rows[key].deleted != 'true';
+				});
 				arr = arr.map(function(key){ return rows[key]; });
 
 				switch(this.sort)
@@ -130,6 +144,19 @@
 				self.$forceUpdate();
 			});
 
+			comm.$on('fieldAdd', function (field) {
+				var uid = self.safeUid(field.uid);
+				// todo: uid exists? create other.
+
+				self.statics.field[uid] = {};
+				for(var i in field){
+					self.statics.field[uid][i] = field[i];
+				}
+				self.statics.field[uid].changed = true;
+				self.$forceUpdate();
+				// todo: paginate to page with this new field.
+			});
+
 			comm.$on('otherPage', function (page) {
 				self.page = page;
 				self.$forceUpdate();
@@ -145,10 +172,8 @@
     					self.unChangeAll();
     					self.$forceUpdate();
     					comm.$emit('fieldSaved');
-//    					console.log(response.data);
 					},function (response) {
-    				// Error
-//    					console.log(response.data)
+						// error?
 					});
 
 			});
@@ -156,3 +181,5 @@
 		}
 
 	});
+
+</script>

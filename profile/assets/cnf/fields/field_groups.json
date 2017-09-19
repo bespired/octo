@@ -1,10 +1,10 @@
 	[
-		{ 
-			"value" : "personal", 
+		{
+			"value" : "personal",
 	 		"label" : "Personal"
 		},
-		{ 
-			"value" : "company", 
+		{
+			"value" : "company",
 	 		"label" : "Company"
 		}
 	]

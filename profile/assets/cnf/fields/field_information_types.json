@@ -1,10 +1,10 @@
 	[
-		{ 
-			"value" : "personia", 
+		{
+			"value" : "personia",
 	 		"label" : "About the person"
 		},
-		{ 
-			"value" : "company", 
+		{
+			"value" : "company",
 	 		"label" : "About the company"
 		}
 	]

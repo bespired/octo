@@ -1,18 +1,18 @@
 	[
-		{ 
-			"value" : "", 
+		{
+			"value" : "",
 	 		"label" : "none"
 		},
-		{ 
-			"value" : "tolower", 
+		{
+			"value" : "tolower",
 	 		"label" : "To Lowercase"
 		},
-		{ 
-			"value" : "toupper", 
+		{
+			"value" : "toupper",
 	 		"label" : "To Uppercase"
 		},
-		{ 
-			"value" : "sanitize", 
+		{
+			"value" : "sanitize",
 	 		"label" : "Sanitize"
 		}
 	]

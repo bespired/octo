@@ -1,27 +1,27 @@
 	[
-		{ 
-			"value" : "none", 
+		{
+			"value" : "none",
 	 		"label" : "No Validation"
-		},		
-		{ 
-			"value" : "name", 
+		},
+		{
+			"value" : "name",
 	 		"label" : "Name, Most free validation"
 		},
-		{ 
-			"value" : "email", 
+		{
+			"value" : "email",
 	 		"label" : "Email, Must be an email"
 		},
-		{ 
-			"value" : "iso-639", 
+		{
+			"value" : "iso-639",
 	 		"label" : "iso-639, Language code"
 		},
-		{ 
-			"value" : "iso-3166", 
+		{
+			"value" : "iso-3166",
 	 		"label" : "iso-3166, Country code"
 		},
-		{ 
-			"value" : "m-f-o-n", 
+		{
+			"value" : "m-f-o-n",
 	 		"label" : "Male/Female/Other/None"
 		}
-		
+
 	]

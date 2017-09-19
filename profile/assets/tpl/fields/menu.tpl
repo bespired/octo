@@ -4,9 +4,9 @@
 	    <li class="title">Fields</li>
 	    <li>filter</li>
 	    <li>search</li>
-	    <li class="right">
+<!-- 	    <li class="right">
 	    	<button class="new"><i class="icon-plus"></i> Create New</button>
-	    </li>
+	    </li> -->
 	</ul>
 </div>
 </template>

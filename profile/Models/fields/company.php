@@ -2,7 +2,7 @@
 
     return
     [
-        "fcem01" =>         [
+        "fcem01" => [
             "uid" => "fcem01",
             "group" => "company",
             "name" => "email",
@@ -17,7 +17,7 @@
             "validation" => "email",
             "fullname" => "company.email"
         ],
-        "fcfn00" =>         [
+        "fcfn00" => [
             "uid" => "fcfn00",
             "group" => "company",
             "name" => "firstname",
@@ -32,7 +32,7 @@
             "validation" => "",
             "deleted" => "true"
         ],
-        "fcfn01" =>         [
+        "fcfn01" => [
             "uid" => "fcfn01",
             "group" => "company",
             "name" => "firstname",
@@ -47,7 +47,7 @@
             "validation" => "name",
             "fullname" => "company.firstname"
         ],
-        "fcln01" =>         [
+        "fcln01" => [
             "uid" => "fcln01",
             "group" => "company",
             "name" => "lastname",
@@ -62,7 +62,7 @@
             "validation" => "name",
             "fullname" => "company.lastname"
         ],
-        "fcff01" =>         [
+        "fcff01" => [
             "uid" => "fcff01",
             "group" => "company",
             "name" => "fullname",
@@ -77,7 +77,7 @@
             "validation" => "name",
             "fullname" => "company.fullname"
         ],
-        "fcts01" =>         [
+        "fcts01" => [
             "uid" => "fcts01",
             "group" => "company",
             "name" => "initials",
@@ -92,7 +92,7 @@
             "validation" => "name",
             "fullname" => "company.initials"
         ],
-        "fcns01" =>         [
+        "fcns01" => [
             "uid" => "fcns01",
             "group" => "company",
             "name" => "insertion",
@@ -107,7 +107,7 @@
             "validation" => "name",
             "fullname" => "company.insertion"
         ],
-        "fcsa01" =>         [
+        "fcsa01" => [
             "uid" => "fcsa01",
             "group" => "company",
             "name" => "salutation",
@@ -122,7 +122,7 @@
             "validation" => "name",
             "fullname" => "company.salutation"
         ],
-        "fcge01" =>         [
+        "fcge01" => [
             "uid" => "fcge01",
             "group" => "company",
             "name" => "gender",
@@ -137,7 +137,7 @@
             "validation" => "m-f-o-n",
             "fullname" => "company.gender"
         ],
-        "fcnt01" =>         [
+        "fcnt01" => [
             "uid" => "fcnt01",
             "group" => "company",
             "name" => "nationality",
@@ -152,7 +152,7 @@
             "validation" => "none",
             "fullname" => "company.nationality"
         ],
-        "fclg01" =>         [
+        "fclg01" => [
             "uid" => "fclg01",
             "group" => "company",
             "name" => "language",
